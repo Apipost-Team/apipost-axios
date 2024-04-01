@@ -161,7 +161,7 @@
     function makeInvokeMethod(e, r, n) {
       var o = h;
       return function (i, a) {
-        if (o === f) throw new Error("Generator is already running");
+        if (o === f) throw Error("Generator is already running");
         if (o === s) {
           if ("throw" === i) throw a;
           return {
@@ -303,7 +303,7 @@
             } else if (c) {
               if (this.prev < i.catchLoc) return handle(i.catchLoc, !0);
             } else {
-              if (!u) throw new Error("try statement without catch or finally");
+              if (!u) throw Error("try statement without catch or finally");
               if (this.prev < i.finallyLoc) return handle(i.finallyLoc);
             }
           }
@@ -343,7 +343,7 @@
             return o;
           }
         }
-        throw new Error("illegal catch attempt");
+        throw Error("illegal catch attempt");
       },
       delegateYield: function (e, r, n) {
         return this.delegate = {
@@ -366,7 +366,7 @@
   }
   function _toPropertyKey(t) {
     var i = _toPrimitive(t, "string");
-    return "symbol" == typeof i ? i : String(i);
+    return "symbol" == typeof i ? i : i + "";
   }
   function _typeof(o) {
     "@babel/helpers - typeof";
@@ -1544,7 +1544,7 @@
      *
      * @return {Number} An ID used to remove interceptor later
      */
-    _createClass(InterceptorManager, [{
+    return _createClass(InterceptorManager, [{
       key: "use",
       value: function use(fulfilled, rejected, options) {
         this.handlers.push({
@@ -1604,7 +1604,6 @@
         });
       }
     }]);
-    return InterceptorManager;
   }();
   var InterceptorManager$1 = InterceptorManager;
 
@@ -1627,7 +1626,7 @@
       FormData: FormData$1,
       Blob: Blob$1
     },
-    protocols: ['http', 'https', 'file', 'blob', 'url', 'data']
+    protocols: ['http', 'https', 'file', 'blob', 'url', 'data', 'app', 'api', 'apt']
   };
 
   var hasBrowserEnv = typeof window !== 'undefined' && typeof document !== 'undefined';
@@ -1976,12 +1975,12 @@
       });
     });
   }
-  var AxiosHeaders = /*#__PURE__*/function (_Symbol$iterator, _Symbol$toStringTag) {
+  var AxiosHeaders = /*#__PURE__*/function () {
     function AxiosHeaders(headers) {
       _classCallCheck(this, AxiosHeaders);
       headers && this.set(headers);
     }
-    _createClass(AxiosHeaders, [{
+    return _createClass(AxiosHeaders, [{
       key: "set",
       value: function set(header, valueOrRewrite, rewrite) {
         var self = this;
@@ -2120,7 +2119,7 @@
         return obj;
       }
     }, {
-      key: _Symbol$iterator,
+      key: Symbol.iterator,
       value: function value() {
         return Object.entries(this.toJSON())[Symbol.iterator]();
       }
@@ -2135,7 +2134,7 @@
         }).join('\n');
       }
     }, {
-      key: _Symbol$toStringTag,
+      key: Symbol.toStringTag,
       get: function get() {
         return 'AxiosHeaders';
       }
@@ -2175,8 +2174,7 @@
         return this;
       }
     }]);
-    return AxiosHeaders;
-  }(Symbol.iterator, Symbol.toStringTag);
+  }();
   AxiosHeaders.accessor(['Content-Type', 'Content-Length', 'Accept', 'Accept-Encoding', 'User-Agent', 'Authorization']);
 
   // reserved names hotfix
@@ -2970,7 +2968,7 @@
      *
      * @returns {Promise} The Promise to be fulfilled
      */
-    _createClass(Axios, [{
+    return _createClass(Axios, [{
       key: "request",
       value: (function () {
         var _request2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(configOrUrl, config) {
@@ -3117,7 +3115,6 @@
         return buildURL(fullPath, config.params, config.paramsSerializer);
       }
     }]);
-    return Axios;
   }(); // Provide aliases for supported request methods
   utils$1.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
     /*eslint func-names:0*/
@@ -3204,7 +3201,7 @@
     /**
      * Throws a `CanceledError` if cancellation has been requested.
      */
-    _createClass(CancelToken, [{
+    return _createClass(CancelToken, [{
       key: "throwIfRequested",
       value: function throwIfRequested() {
         if (this.reason) {
@@ -3261,7 +3258,6 @@
         };
       }
     }]);
-    return CancelToken;
   }();
   var CancelToken$1 = CancelToken;
 

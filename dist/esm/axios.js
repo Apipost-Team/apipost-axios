@@ -1233,7 +1233,7 @@ const platform$1 = {
     FormData: FormData$1,
     Blob: Blob$1
   },
-  protocols: ['http', 'https', 'file', 'blob', 'url', 'data']
+  protocols: ['http', 'https', 'file', 'blob', 'url', 'data', 'app', 'api', 'apt']
 };
 
 const hasBrowserEnv = typeof window !== 'undefined' && typeof document !== 'undefined';
